@@ -1,0 +1,62 @@
+[
+  {
+    "storage": "0",
+    "memory": "63",
+    "cpu": "19",
+    "user": "alexis"
+  },
+  {
+    "storage": "0",
+    "memory": "2",
+    "cpu": "0",
+    "user": "root"
+  },
+  {
+    "storage": "0",
+    "memory": "0",
+    "cpu": "0",
+    "user": "whoopsie"
+  },
+  {
+    "storage": "0",
+    "memory": "0",
+    "cpu": "0",
+    "user": "uuidd"
+  },
+  {
+    "storage": "0",
+    "memory": "0",
+    "cpu": "0",
+    "user": "systemd+"
+  },
+  {
+    "storage": "0",
+    "memory": "0",
+    "cpu": "0",
+    "user": "syslog"
+  },
+  {
+    "storage": "0",
+    "memory": "0",
+    "cpu": "0",
+    "user": "rtkit"
+  },
+  {
+    "storage": "0",
+    "memory": "0",
+    "cpu": "0",
+    "user": "message+"
+  },
+  {
+    "storage": "0",
+    "memory": "0",
+    "cpu": "0",
+    "user": "kernoops"
+  },
+  {
+    "storage": "0",
+    "memory": "0",
+    "cpu": "0",
+    "user": "colord"
+  }
+]

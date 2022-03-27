@@ -2,31 +2,32 @@ import json
 
 import pygal
 from flask import Flask, render_template, request, jsonify
-from flask_cors import CORS, cross_origin
 
 import dao
 
 app = Flask(__name__)
-CORS(app)
 
 
 @app.route('/', methods={'GET'})
 def index():
-    bar_chart = pygal.Bar()
-    bar_chart.add('Fibonacci', [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55])
-    chart = bar_chart.render_data_uri()
-
     data = dao.getAudits()
-    return render_template('dashboard.html', chart1=chart)
+    print(data)
+    graph = pygal.Line()
+    graph.title = '% Change Coolness of programming languages over time.'
+    graph.x_labels = ['2011', '2012', '2013', '2014', '2015', '2016']
+    graph.add('Python', [15, 31, 89, 200, 356, 900])
+    graph.add('All others combined!', [5, 15, 21, 55, 92, 105])
+    graph_data = graph.render_data_uri()
+
+    return render_template('dashboard.html', chart=graph_data)
 
 
 @app.route('/getAudits', methods={'GET'})
-@cross_origin()
 def getAudits():
-    return jsonify(dao.getAudits()), 200\
+    return jsonify(dao.getAudits()), 200
+
 
 @app.route('/getSettings', methods={'GET'})
-@cross_origin()
 def getSettings():
     return jsonify(dao.getSettings()), 200
 

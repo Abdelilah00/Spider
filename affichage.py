@@ -8,10 +8,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 data = requests.get('http://localhost:8080/getAudits').json()
-settings = requests.get('http://localhost:8080/getSettings').json()[0]
 df = pd.json_normalize(data)
-df_settings = pd.json_normalize(settings)
 print(df)
+
+
 print('shows a user name ... ')
 user = input()
 
@@ -21,7 +21,8 @@ plt.plot(filtred_df['createdon'], filtred_df['memory'], color='blue', label='mem
 plt.plot(filtred_df['createdon'], filtred_df['storage'], color='yellow', label='storage')
 
 # plot thresholds
-
+settings = requests.get('http://localhost:8080/getSettings').json()[0]
+df_settings = pd.json_normalize(settings)
 plt.axhline(y=settings['threshold_storage'], linewidth=1, color='red', label='storage threshold')
 plt.axhline(y=settings['threshold_memory'], linewidth=1, color='red', label='memory threshold')
 plt.axhline(y=settings['threshold_cpu'], linewidth=1, color='#800000', label='cpu threshold')

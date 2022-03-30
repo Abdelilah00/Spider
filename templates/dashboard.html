@@ -12,17 +12,23 @@
 <style>
 
 </style>
-<!-- Don't forget the "|safe"! -->
-<div id="chart">
-    <embed type="image/svg+xml" src={{ chart |safe }}  style='max-width:1000px' /></div>
 <body>
+<!-- Don't forget the "|safe"! -->
+<div id="graph1">
+    <embed type="image/svg+xml" src={python{ graph1 |safe }} style='max-width:1000px'/>
+</div>
 
+<div id="graph2">
+    <embed type="image/svg+xml" src={{ graph2 |safe }} style='max-width:1000px'/>
+</div>
+
+<div id="graph3">
+    <embed type="image/svg+xml" src={{ graph3 |safe }} style='max-width:1000px'/>
+</div>
 <div class="container">
     <div class="d-grid gap-2">
 
     </div>
-
 </div>
-
 </body>
 </html>

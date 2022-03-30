@@ -1,15 +1,9 @@
 [
   {
     "storage": "0",
-    "memory": "63",
-    "cpu": "19",
+    "memory": "67",
+    "cpu": "22",
     "user": "alexis"
-  },
-  {
-    "storage": "0",
-    "memory": "2",
-    "cpu": "0",
-    "user": "root"
   },
   {
     "storage": "0",
@@ -40,6 +34,12 @@
     "memory": "0",
     "cpu": "0",
     "user": "rtkit"
+  },
+  {
+    "storage": "0",
+    "memory": "0",
+    "cpu": "0",
+    "user": "root"
   },
   {
     "storage": "0",

@@ -1,4 +1,7 @@
 #!/bin/bash
+
+$(./dataCollector.bash)
+
 jq -Rsn '
     [inputs
      | . / "\n"

@@ -2,6 +2,8 @@ import json
 
 import pygal
 from flask import Flask, render_template, request, jsonify
+import pandas as pd
+from pandas import unique
 
 import dao
 
@@ -12,14 +14,31 @@ app = Flask(__name__)
 def index():
     data = dao.getAudits()
     print(data)
-    graph = pygal.Line()
-    graph.title = '% Change Coolness of programming languages over time.'
-    graph.x_labels = ['2011', '2012', '2013', '2014', '2015', '2016']
-    graph.add('Python', [15, 31, 89, 200, 356, 900])
-    graph.add('All others combined!', [5, 15, 21, 55, 92, 105])
-    graph_data = graph.render_data_uri()
+    table = pd.json_normalize(data)
+    users = table.user.unique()
 
-    return render_template('dashboard.html', chart=graph_data)
+    graph = pygal.Line()
+    graph.title = '% Cpu Consumption'
+    graph.x_labels = table['createdon'].values
+    for user in users:
+        graph.add(user, table[table.user == user].cpu)
+    graph1 = graph.render_data_uri()
+
+    graph = pygal.Line()
+    graph.title = '% Storage Consumption'
+    graph.x_labels = table['createdon'].values
+    for user in users:
+        graph.add(user, table[table.user == user].cpu)
+    graph2 = graph.render_data_uri()
+
+    graph = pygal.Line()
+    graph.title = '% Memory Consumption'
+    graph.x_labels = table['createdon'].values
+    for user in users:
+        graph.add(user, table[table.user == user].cpu)
+    graph3 = graph.render_data_uri()
+
+    return render_template('dashboard.html', graph1=graph1, graph2=graph2, graph3=graph3)
 
 
 @app.route('/getAudits', methods={'GET'})

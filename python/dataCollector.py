@@ -5,6 +5,7 @@ def collect():
     base_path = "/home/"
     users = psu.users()
     data = []
+    #todo: https://psutil.readthedocs.io/en/latest/#psutil.process_iter
     for user in users:
         path = base_path + user.name
         info = {
@@ -15,3 +16,8 @@ def collect():
         }
         data.append(info)
     return data
+
+
+if __name__ == '__main__':
+    print(psu.users() )
+    print(psu.users() )

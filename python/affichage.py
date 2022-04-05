@@ -11,9 +11,12 @@ data = requests.get('http://localhost:8080/getAudits').json()
 df = pd.json_normalize(data)
 print(df)
 
-
 print('shows a user name ... ')
 user = input()
+
+
+
+
 
 filtred_df = df[df['user'] == user]
 plt.plot(filtred_df['createdon'], filtred_df['cpu'], color='green', label='CPU')

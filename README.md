@@ -1,5 +1,5 @@
 # Spider
-before run any command or script we need to run our Flask api by typing :
+first of all we need to run our Flask api by typing :
 ```commandeline
 python3 api.py
 ```
@@ -26,6 +26,15 @@ in order to visualise the collected data
 ```commandline
 python3 ./affichage.py
 ```
+run the SMTP server first
+```commandline
+python -m smtpd -c DebuggingServer -n localhost:1025
+```
+send email to x
+```commandline
+python3 smtp.py
+```
+
 //todo:SMTP & crise detection
 ## module 4
 and finally if you want to visualize collected data just visit [http://localhost:8080/]

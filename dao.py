@@ -93,7 +93,9 @@ def criseDetection():
     sql = '''select * from audit a,settings s where a.cpu>s.threshold_cpu or a.memory>s.threshold_memory or a.storage>s.threshold_storage'''
     cur = conn.cursor()
     cur.execute(sql)
-    return cur.fetchall()
+    r = [dict((cur.description[i][0], value) for i, value in enumerate(row)) for row in cur.fetchall()]
+    cur.connection.close()
+    return (r[0] if r else None) if False else r
 
 
 def init():
@@ -111,8 +113,8 @@ def init():
     createdon datetime default current_timestamp,
     threshold_cpu integer default 5,
     threshold_memory integer default 5 ,
-    threshold_storage integer default 5,
-    max_backups integer default 10)'''
+    threshold_storage integer default 5)'''
+
     settings_default = '''insert into settings(threshold_cpu) values(5);'''
     print('db init')
     cur = conn.cursor()

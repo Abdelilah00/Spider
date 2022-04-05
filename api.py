@@ -45,6 +45,10 @@ def index():
 def getAudits():
     return jsonify(dao.getAudits()), 200
 
+@app.route('/getDetectedCrise', methods={'GET'})
+def getDetectedCrise():
+    return jsonify(dao.criseDetection()), 200
+
 
 @app.route('/getSettings', methods={'GET'})
 def getSettings():

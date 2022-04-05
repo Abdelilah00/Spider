@@ -28,11 +28,13 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="55b2550b-6058-4cc7-a1d8-1e3b6003bf8a">
-      <console name="Connection" type="STANDARD" schema="" session="Main" />
+      <console name="Connection" type="STANDARD" schema="" session="Main"><![CDATA[truncat table audits;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="55b2550b-6058-4cc7-a1d8-1e3b6003bf8a" object-ref="consoles/Connection" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="55b2550b-6058-4cc7-a1d8-1e3b6003bf8a" />
